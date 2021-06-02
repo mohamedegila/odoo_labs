@@ -1,0 +1,29 @@
+<odoo>
+<data>
+     <record id="launch_the_wizard" model="ir.actions.act_window">
+          <field name="name">Launch the Wizard</field>
+          <field name="res_model">dialog</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+          <field name="binding_model_id" ref="model_pharmacy_orders"/>
+      </record>
+
+      <record model="ir.ui.view" id="dialog_form">
+      <field name="name">dialog_form</field>
+      <field name="model">dialog</field>
+      <field name="arch" type="xml">
+        <form>
+          <h2> create new order with same value of active order ? </h2>
+
+         <button name="createNewOrderWithSaveValues" string="Yes" type="object" class="oe_highlight"/>
+          <button string="No"/>
+        </form>
+      </field>
+    </record>
+
+   
+<!-- 
+       <menuitem name="dialog_wizards" id="dialog_wizards_list" parent="pharmacy.menu_1"
+              action="launch_the_wizard"/> -->
+    </data>
+</odoo>

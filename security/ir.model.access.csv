@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pharmacy_pharmacy,pharmacy.pharmacy,model_pharmacy_pharmacy,base.group_user,1,1,1,1
+access_pharmacy_orders,pharmacy.orders,model_pharmacy_orders,base.group_user,1,1,1,1
+access_pharmacy_order_line,pharmacy.order_line,model_pharmacy_order_line,base.group_user,1,1,1,1
+access_dialog,dialog,model_dialog,base.group_user,1,1,1,1
+

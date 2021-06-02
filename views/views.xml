@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pharmacy.list">
+      <field name="name">pharmacy list</field>
+      <field name="model">pharmacy.pharmacy</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="price"/>
+          <field name="manufactor"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pharmacy.action_window">
+      <field name="name">pharmacy window</field>
+      <field name="res_model">pharmacy.pharmacy</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+ 
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="pharmacy" id="pharmacy.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="pharmacy.menu_1" parent="pharmacy.menu_root"/>
+    <menuitem name="Menu 2" id="pharmacy.menu_2" parent="pharmacy.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Medicine" id="pharmacy.menu_1_list" parent="pharmacy.menu_1"
+              action="pharmacy.action_window"/>
+ 
+  </data>
+</odoo>

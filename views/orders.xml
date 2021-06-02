@@ -1,0 +1,94 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pharmacy.list_orders">
+      <field name="name">pharmacy list</field>
+      <field name="model">pharmacy.orders</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="customer"/>
+          <field name="order_lines"/>
+          <field name="total"/>
+          <!-- <field name="date"/> -->
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="pharmacy.list_orders_calendar">
+      <field name="name">pharmacy list</field>
+      <field name="model">pharmacy.orders</field>
+      <field name="arch" type="xml">
+        <calendar date_start="timestamp" string="Basic Calendar">
+          <field name="customer"/>
+        </calendar>
+      </field>
+    </record>
+
+
+
+    <record model="ir.ui.view" id="pharmacy.list_orders_graph">
+      <field name="name">pharmacy list</field>
+      <field name="model">pharmacy.orders</field>
+      <field name="arch" type="xml">
+        <graph string="Basic Graph">
+          <field name="timestamp"/>
+          <field name="total" type="measure"/>
+        </graph>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="orders_form">
+      <field name="name">orders_form</field>
+      <field name="model">pharmacy.orders</field>
+      <field name="arch" type="xml">
+        <form>
+        <header>
+          <button name="%(launch_the_wizard)d"  string="Copy" type="action" class="oe_highlight"/>
+        </header>
+        <group>
+          <group>
+          <field name="customer"/>
+          <field name="timestamp"/>
+          <field name="order_lines"/>
+          <field name="total"/>
+          </group>
+        </group>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pharmacy.action_window_orders">
+      <field name="name">pharmacy window</field>
+      <field name="res_model">pharmacy.orders</field>
+      <field name="view_mode">tree,calendar,graph,form</field>
+    </record>
+
+
+
+
+
+    <!-- Top menu item -->
+
+    <!-- <menuitem name="pharmacy" id="pharmacy.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!-- <menuitem name="Menu 1" id="pharmacy.menu_1" parent="pharmacy.menu_root"/>
+    <menuitem name="Menu 2" id="pharmacy.menu_2" parent="pharmacy.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="Orders" id="pharmacy.menu_1_order_list" parent="pharmacy.menu_1"
+              action="pharmacy.action_window_orders"/>
+
+    <!-- <menuitem name="List" id="orders_menu_1_list" parent="orders_menu_1"
+              action="orders_action_window"/> -->
+    
+  </data>
+</odoo>

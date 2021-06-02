@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="pharmacy.list_order_line">
+      <field name="name">pharmacy list</field>
+      <field name="model">pharmacy.order_line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="qty"/>
+          <field name="sub_total"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="pharmacy.action_window_order_line">
+      <field name="name">pharmacy window</field>
+      <field name="res_model">pharmacy.order_line</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <!-- <menuitem name="pharmacy" id="pharmacy.menu_root"/> -->
+
+    <!-- menu categories -->
+
+    <!-- <menuitem name="Menu 1" id="pharmacy.menu_1" parent="pharmacy.menu_root"/>
+    <menuitem name="Menu 2" id="pharmacy.menu_2" parent="pharmacy.menu_root"/> -->
+
+    <!-- actions -->
+
+    <menuitem name="Order_Line" id="pharmacy.menu_orderLine_list" parent="pharmacy.menu_1"
+              action="pharmacy.action_window_order_line"/>
+    
+
+  </data>
+</odoo>
